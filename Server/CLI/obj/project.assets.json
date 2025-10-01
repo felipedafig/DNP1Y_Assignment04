@@ -1,69 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {
-      "FileRepositories/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v10.0",
-        "dependencies": {
-          "Models": "1.0.0",
-          "RepositoryContracts": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/FileRepositories.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/FileRepositories.dll": {}
-        }
-      },
-      "Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v10.0",
-        "compile": {
-          "bin/placeholder/Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Models.dll": {}
-        }
-      },
-      "RepositoryContracts/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v10.0",
-        "dependencies": {
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/RepositoryContracts.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RepositoryContracts.dll": {}
-        }
-      }
-    }
+    "net10.0": {}
   },
-  "libraries": {
-    "FileRepositories/1.0.0": {
-      "type": "project",
-      "path": "../FileRepositories/FileRepositories.csproj",
-      "msbuildProject": "../FileRepositories/FileRepositories.csproj"
-    },
-    "Models/1.0.0": {
-      "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
-    },
-    "RepositoryContracts/1.0.0": {
-      "type": "project",
-      "path": "../RepositoryContracts/RepositoryContracts.csproj",
-      "msbuildProject": "../RepositoryContracts/RepositoryContracts.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net10.0": [
-      "FileRepositories >= 1.0.0",
-      "Models >= 1.0.0",
-      "RepositoryContracts >= 1.0.0"
-    ]
+    "net10.0": []
   },
   "packageFolders": {
     "C:\\Users\\felip\\.nuget\\packages\\": {}
@@ -71,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\CLI\\CLI.csproj",
+      "projectUniqueName": "C:\\Git_VIACode\\DNP1Y\\Assignment04\\Server\\CLI\\CLI.csproj",
       "projectName": "CLI",
-      "projectPath": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\CLI\\CLI.csproj",
+      "projectPath": "C:\\Git_VIACode\\DNP1Y\\Assignment04\\Server\\CLI\\CLI.csproj",
       "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\CLI\\obj\\",
+      "outputPath": "C:\\Git_VIACode\\DNP1Y\\Assignment04\\Server\\CLI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -89,17 +31,7 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {
-            "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\FileRepositories\\FileRepositories.csproj": {
-              "projectPath": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\FileRepositories\\FileRepositories.csproj"
-            },
-            "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\Models\\Models.csproj": {
-              "projectPath": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\Models\\Models.csproj"
-            },
-            "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\RepositoryContracts\\RepositoryContracts.csproj": {
-              "projectPath": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\RepositoryContracts\\RepositoryContracts.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

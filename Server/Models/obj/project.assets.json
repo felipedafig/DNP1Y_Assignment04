@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Git_VIACode\\DNP1Y\\Assignment04\\Server\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\Models\\Models.csproj",
+      "projectPath": "C:\\Git_VIACode\\DNP1Y\\Assignment04\\Server\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Git_VIACode\\DNP1Y\\Assignment03\\Server\\Models\\obj\\",
+      "outputPath": "C:\\Git_VIACode\\DNP1Y\\Assignment04\\Server\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
