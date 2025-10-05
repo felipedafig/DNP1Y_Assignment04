@@ -1,4 +1,5 @@
-    
+
+
 
 namespace Models;
 
@@ -9,12 +10,12 @@ public class Post
     public string? Body { get; set; }
     public int UserId { get; set; }
 
-     public Post(int Id, string? Title, string? Body, int UserId)
-        {
-            this.Id = Id;
-            this.Title = Title;
-            this.Body = Body;
-            this.UserId = UserId;
+    public Post(int Id, string? Title, string? Body, int UserId)
+    {
+        this.Id = Id;
+        this.Title = Title;
+        this.Body = Body;
+        this.UserId = UserId;
 
-        }
+    }
 }

@@ -36,9 +36,9 @@ public class PostFileRepository : IPostRepository
     public async Task DeleteAsync(int id)
     {
         string postsAsJson = await File.ReadAllTextAsync(filePath);
-        List<Comment> posts = JsonSerializer.Deserialize<List<Comment>>(postsAsJson)!;
+        List<Post> posts = JsonSerializer.Deserialize<List<Post>>(postsAsJson)!;
 
-        Comment? postToRemove = posts.SingleOrDefault(p => p.Id == id);
+        Post? postToRemove = posts.SingleOrDefault(p => p.Id == id);
         if (postToRemove is null)
         {
             throw new InvalidOperationException(
@@ -73,22 +73,34 @@ public class PostFileRepository : IPostRepository
         return post;
     }
 
-    public async Task UpdateAsync(Post post)
+    public async Task<Post> UpdateAsync(Post post)
+{
+    // 1. Read and Deserialize the entire file content
+    string postsAsJson = await File.ReadAllTextAsync(filePath);
+    List<Post> posts = JsonSerializer.Deserialize<List<Post>>(postsAsJson)!;
+
+    // 2. Find the post to update using its ID
+    Post? postToUpdate = posts.SingleOrDefault(p => p.Id == post.Id);
+    if (postToUpdate is null)
     {
-        string postsAsJson = await File.ReadAllTextAsync(filePath);
-        List<Post> posts = JsonSerializer.Deserialize<List<Post>>(postsAsJson)!;
-
-        Post? postToUpdate = posts.SingleOrDefault(p => p.Id == post.Id);
-        if (postToUpdate is null)
-        {
-            throw new InvalidOperationException(
-                $"Post with ID '{post.Id}' not found");
-        }
-
-        int index = posts.IndexOf(postToUpdate);
-        posts[index] = post;
-
-        postsAsJson = JsonSerializer.Serialize(posts);
-        await File.WriteAllTextAsync(filePath, postsAsJson);
+        throw new InvalidOperationException(
+            $"Post with ID '{post.Id}' not found");
     }
+
+    // 3. FIX: Manually update the properties of the existing object.
+    // This is the crucial step to ensure the correct object in the list is modified.
+    postToUpdate.Title = post.Title; 
+    postToUpdate.Body = post.Body;
+    postToUpdate.UserId = post.UserId;
+    // Add any other properties here (e.g., postToUpdate.Date = DateTime.Now;)
+
+    // The 'posts' list now contains the modified 'postToUpdate' object.
+    
+    // 4. Serialize and write the entire list back to the file
+    postsAsJson = JsonSerializer.Serialize(posts);
+    await File.WriteAllTextAsync(filePath, postsAsJson);
+
+    // 5. Return the updated object (which is the modified postToUpdate)
+    return postToUpdate;
+}
 }

@@ -51,9 +51,16 @@ public class CommentFileRepository : ICommentRepository
 
     public IQueryable<Comment> GetMany()
     {
-        string commentsAsJson = File.ReadAllTextAsync(filePath).Result;
+        string commentsAsJson = File.ReadAllText(filePath);
         List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
         return comments.AsQueryable();
+    }
+    
+    public IQueryable<Comment> GetManyByPostId(int id)
+    {
+        string commentsAsJson = File.ReadAllText(filePath);
+        List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
+        return comments.Where(c => c.PostId == id).AsQueryable();
     }
 
 
@@ -62,7 +69,7 @@ public class CommentFileRepository : ICommentRepository
         string commentsAsJson = await File.ReadAllTextAsync(filePath);
         List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
         Comment? comment = comments.SingleOrDefault(p => p.Id == id);
-         if (comment is null)
+        if (comment is null)
         {
             throw new InvalidOperationException(
                             $"Comment with ID '{id}' not found");
@@ -70,20 +77,22 @@ public class CommentFileRepository : ICommentRepository
         return comment;
     }
 
-    public async Task UpdateAsync(Comment comment)
+    public async Task<Comment> UpdateAsync(Comment comment)
     {
         string commentsAsJson = await File.ReadAllTextAsync(filePath);
         List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
-        Comment? commentToUpdate = comments.SingleOrDefault(comment);
-         if (commentToUpdate is null)
+        Comment? commentToUpdate = comments.SingleOrDefault(c => c.Id == comment.Id);
+        if (commentToUpdate is null)
         {
             throw new InvalidOperationException(
                             $"Comment with ID '{comment.Id}' not found");
         }
-        comments.Remove(commentToUpdate);
-        comments.Add(comment);
-        
+        int index = comments.IndexOf(commentToUpdate);
+        comments[index] = comment;
+
         commentsAsJson = JsonSerializer.Serialize(comments);
         await File.WriteAllTextAsync(filePath, commentsAsJson);
+
+        return comment;
     }
 }

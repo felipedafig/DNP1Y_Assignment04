@@ -1,6 +1,129 @@
-@WebAPI1_HostAddress = http://localhost:5075
+@WebAPI1_HostAddress = http://localhost:5075 
+// IMPORTANT: Use https://localhost:7001 if your app defaults to HTTPS
 
-GET {{WebAPI1_HostAddress}}/weatherforecast/
+######## USERS ########
+
+### 1. POST - Create User (Felps)
+POST {{WebAPI1_HostAddress}}/users
+Content-Type: application/json
+
+{
+    "Username": "Felps",
+    "Password": "123" 
+}
+
+### 2. POST - Create User (Joao)
+POST {{WebAPI1_HostAddress}}/users
+Content-Type: application/json
+
+{
+    "Username": "Joao",
+    "Password": "321"
+}
+
+### 3. PUT - Update User 2 (Lucas)
+PUT {{WebAPI1_HostAddress}}/users/2 
+Content-Type: application/json
+
+{
+    "Id" : 2,
+    "Username" : "Lucas",
+    "Password" : "Doggie" 
+}
+
+### 4. DELETE - Delete User 2
+DELETE {{WebAPI1_HostAddress}}/users/2 
 Accept: application/json
 
-###
+### 5. GET - Get Single User 2
+GET {{WebAPI1_HostAddress}}/users/2
+Accept: application/json
+
+### 6. GET - Get Users Filtered by Username
+GET {{WebAPI1_HostAddress}}/users?username=felps
+Accept: application/json
+
+
+######## POSTS ########
+
+### 7. POST - Create Post 1 (User 2)
+POST {{WebAPI1_HostAddress}}/posts 
+Content-Type: application/json
+
+{
+    "Title" : "Pro3 bug",
+    "Body" : "Does anyone know how to solve the bug?",
+    "UserId" : 2
+}
+
+### 8. POST - Create Post 2 (User 3)
+POST {{WebAPI1_HostAddress}}/posts 
+Content-Type: application/json
+
+{
+    "Title" : "Day in a life",
+    "Body" : "Today I did nothing!",
+    "UserId" : 3
+}
+
+### 9. PUT - Update Post 2
+PUT {{WebAPI1_HostAddress}}/posts/2 
+Content-Type: application/json
+
+{
+    "Id" : 2,
+    "Title" : "Week in a month",
+    "Body" : "Did everything!",
+    "UserId" : 3
+}
+
+### 10. GET - Get Single Post 1
+GET {{WebAPI1_HostAddress}}/posts/1 
+Accept: application/json
+
+### 11. GET - Filter Posts (Title 'Pro3' AND User 2)
+GET {{WebAPI1_HostAddress}}/posts?contains=Pro3&userId=2
+Accept: application/json
+
+### 12. GET - Filter Posts (Title 'Day')
+GET {{WebAPI1_HostAddress}}/posts?contains=Day
+Accept: application/json
+
+
+######## COMMENTS ########
+
+### 13. POST - Add Comment to Post 1
+POST {{WebAPI1_HostAddress}}/posts/1/comments
+Content-Type: application/json
+
+{
+    "Body" : "I knowww! But I wont tell you.",
+    "UserId" : 1,
+    "PostId" : 1
+}
+
+### 14. GET - Get Single Comment 1 (via Post route is incorrect, must be direct)
+GET {{WebAPI1_HostAddress}}/comments/3
+Accept: application/json
+
+### 15. PUT - Update Comment 1
+PUT {{WebAPI1_HostAddress}}/comments/1 
+Content-Type: application/json
+
+{
+    "Body" : "Acc idk",
+    "UserId" : 1,
+    "PostId" : 1
+}
+
+### 16. DELETE - Delete Comment 1
+DELETE {{WebAPI1_HostAddress}}/comments/3 
+Accept: application/json
+
+### 17. GET - Get Single Comment (Check if delete worked)
+GET {{WebAPI1_HostAddress}}/comments/3
+Accept: application/json
+
+### 18. GET - Get comments by User 1 (Final Example)
+GET {{WebAPI1_HostAddress}}/comments?userId=1
+Accept: application/json

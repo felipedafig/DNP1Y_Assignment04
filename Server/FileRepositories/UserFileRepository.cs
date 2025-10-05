@@ -73,12 +73,12 @@ public class UserFileRepository : IUserRepository
         return user;
     }
 
-    public async Task UpdateAsync(User user)
+    public async Task<User> UpdateAsync(User user)
     {
         string usersAsJson = await File.ReadAllTextAsync(filePath);
         List<User> users = JsonSerializer.Deserialize<List<User>>(usersAsJson)!;
 
-       User? postToUpdate = users.SingleOrDefault(p => p.Id == user.Id);
+        User? postToUpdate = users.SingleOrDefault(p => p.Id == user.Id);
         if (postToUpdate is null)
         {
             throw new InvalidOperationException(
@@ -90,5 +90,7 @@ public class UserFileRepository : IUserRepository
 
         usersAsJson = JsonSerializer.Serialize(users);
         await File.WriteAllTextAsync(filePath, usersAsJson);
+
+        return user;
     }
 }

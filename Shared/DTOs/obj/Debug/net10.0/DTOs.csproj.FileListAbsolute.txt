@@ -1,0 +1,12 @@
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\bin\Debug\net10.0\DTOs.deps.json
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\bin\Debug\net10.0\DTOs.dll
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\bin\Debug\net10.0\DTOs.pdb
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\DTOs.AssemblyInfoInputs.cache
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\DTOs.AssemblyInfo.cs
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\DTOs.csproj.CoreCompileInputs.cache
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\DTOs.sourcelink.json
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\DTOs.dll
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\refint\DTOs.dll
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\DTOs.pdb
+C:\Git_VIACode\DNP1Y\Assignment04\Shared\DTOs\obj\Debug\net10.0\ref\DTOs.dll
